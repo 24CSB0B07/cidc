@@ -15,7 +15,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 #MAIN WINDOW
 root = tk.Tk()
-root.title("VulnFlow — Vulnerability Flow Analyzer")
+root.title("Command Injection Detection Compiler")
 root.geometry("1900x1120")
 root.resizable(False, False)
 root.configure(bg="#121212")
@@ -241,7 +241,7 @@ def select_file():
 
 def analyze_code():
     clear_output()
-    write_output("VulnFlow Analysis Results\n\n", "info")
+    write_output("Analysis Results\n\n", "info")
 
     code = code_editor.get("1.0", tk.END).splitlines()
 
