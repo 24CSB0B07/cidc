@@ -251,7 +251,7 @@ def run_vulnflow_analysis(code_lines):
     functions = parse_functions(code_lines)
 
     if functions:
-        logs.append((f"[VULNFLOW] Detected functions: {', '.join(functions.keys())}\n", "info"))
+        logs.append((f"Detected functions: {', '.join(functions.keys())}\n", "info"))
 
     #STEP 1: Analyze each function body in isolation
     func_tainted_params = {}
@@ -331,7 +331,7 @@ def run_vulnflow_analysis(code_lines):
     command_map = analyze_lines(all_lines, taint_table, source_map, prop_map, logs)
 
     #STEP 3: Inter-procedural propagation
-    logs.append(("\n[VULNFLOW — INTER-PROCEDURAL ANALYSIS]\n", "info"))
+    logs.append(("\n[INTER-PROCEDURAL ANALYSIS]\n", "info"))
 
     logged_inter = set()
 
@@ -453,14 +453,14 @@ def run_vulnflow_analysis(code_lines):
                                 )
 
     #STEP 4: Global sink detection
-    logs.append(("\n[VULNFLOW — SECURITY ANALYSIS]\n", "info"))
+    logs.append(("\n[SECURITY ANALYSIS]\n", "info"))
     detect_sinks(
         [(i + 1, line) for i, line in enumerate(code_lines)],
         taint_table, source_map, prop_map, command_map, logs, sinks
     )
 
     #FINAL TAINT TABLE
-    logs.append(("\n[VULNFLOW — FINAL TAINT TABLE]\n", "info"))
+    logs.append(("\n[FINAL TAINT TABLE]\n", "info"))
     for v in taint_table:
         logs.append((f"  {v} : TAINTED\n", "info"))
 
