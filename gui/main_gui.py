@@ -58,7 +58,7 @@ style.map(
 #HEADER
 header = tk.Label(
     root,
-    text="VulnFlow — Vulnerability Flow Analyzer",
+    text="Command Injection Detection Compiler",
     font=("Segoe UI", 20, "bold"),
     bg="#1f1f1f",
     fg="#00e5ff",
